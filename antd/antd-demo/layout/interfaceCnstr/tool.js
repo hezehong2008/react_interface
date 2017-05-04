@@ -16,7 +16,7 @@ import { Tabs } from 'antd';
 const TabPane = Tabs.TabPane;
 const RadioGroup = Radio.Group;
 
-class LayoutAutomation extends React.Component{
+class InterfaceTool extends React.Component{
     callback = (key)=> {
         console.log(key);
     }
@@ -30,6 +30,10 @@ class LayoutAutomation extends React.Component{
         this.setState({
             value: e.target.value,
         });
+    }
+
+    onHanderMenu = (e)=>{
+
     }
 
     onSelectHttpMethod = (value)=>{
@@ -125,4 +129,7 @@ class LayoutAutomation extends React.Component{
 
 }
 
-export default LayoutAutomation;
+export default InterfaceTool;
+/**
+ * Created by admin on 2017/5/3.
+ */

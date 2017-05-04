@@ -16,6 +16,7 @@ import DesignToolLayout from './design/designToolLayout';
 import InterfaceLayout from './layout/layoutInterface.js';
 import AutomationLayout from './layout/layoutAutomation.js';
 import submitForm from './layout/submitForm.js';
+import InterfaceTool from './layout/interfaceCnstr/tool.js';
 /**
  * PlatformLayout
  */
@@ -28,7 +29,7 @@ class PlatformLayout extends React.Component {
     }
     handleTopMenu= (e) => {
         if(e.key == "1"){
-            browserHistory.push("" );
+            browserHistory.push("/interface");
         }else if(e.key == '2'){
             browserHistory.push("/Automation" );
         }
@@ -57,8 +58,9 @@ class PlatformLayout extends React.Component {
                         <Menu.Item key="1">接口测试</Menu.Item>
                         <Menu.Item key="2">自动化</Menu.Item>
                         <Menu.Item key="3">测试工具</Menu.Item>
-                        <Menu.Item key="4">待添加...</Menu.Item>
-                        <Menu.Item key="5">待添加...</Menu.Item>
+                        <Menu.Item key="4">性能测试</Menu.Item>
+                        <Menu.Item key="5">安全测试</Menu.Item>
+                        <Menu.Item key="5">待添加....</Menu.Item>
                     </Menu>
                 </Header>
                 <Content style={{ padding: '0 50px' }}>
@@ -81,9 +83,14 @@ ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={PlatformLayout}>
             <IndexRoute component={InterfaceLayout}/>
+            <Route path="interface" component={InterfaceLayout}/>
+                <Route component={InterfaceLayout}>
+                    <Route path="/interface/tool" component={InterfaceTool}></Route>
+
+                </Route>
+
             <Route path="Automation" component={AutomationLayout}/>
             <Route path="test" component={submitForm}/>
-            </Route>
-
+        </Route>
     </Router>
     ,document.getElementById('root'));

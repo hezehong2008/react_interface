@@ -28,16 +28,24 @@ class LayoutInterface extends React.Component{
             }
 
         );
-    }
+    };
+    onHanderMenu = (e)=>{
+
+    };
 
     onMenuClick = (e)=>{
         console.log(e);
-
-    }
+        if(e.key == "1") {
+            browserHistory.push("/interface/tool");
+        }
+        this.setState({
+            current: e.key
+        });
+    };
 
     onOpenChangeHander=(e)=>{
         console.log(e);
-    }
+    };
 
     render(){
         return(
@@ -53,26 +61,26 @@ class LayoutInterface extends React.Component{
                 onClick={this.onMenuClick}
                 >
                 <SubMenu key="Tool" title={<span><Icon type="user" />实用工具</span>}>
-                    <Menu.Item key="1">接口生成/调试</Menu.Item>
+                    <Menu.Item key="1">接口生成</Menu.Item>
 
                 </SubMenu>
-                <SubMenu key="sub2" title={<span><Icon type="laptop" />subnav 2</span>}>
-                    <Input placeholder="Basic usage"/>
-                    <Demo style={{width: '80%'}}/>
-                    <Menu.Item key="2">option2</Menu.Item>
-                    <Menu.Item key="3">option3</Menu.Item>
-                    <Menu.Item key="4">option4</Menu.Item>
+                <SubMenu key="sub2" title={<span><Icon type="laptop" />用例管理</span>}>
+                    {/*<Input placeholder="Basic usage"/>*/}
+                    {/*<Demo style={{width: '80%'}}/>*/}
+                    <Menu.Item key="2">待添加....</Menu.Item>
+                    <Menu.Item key="3">待添加....</Menu.Item>
+                    <Menu.Item key="4">待添加....</Menu.Item>
                 </SubMenu>
-                <SubMenu key="sub3" title={<span><Icon type="notification" />subnav 3</span>}>
-                    <Menu.Item key="9">option9</Menu.Item>
-                    <Menu.Item key="10">option10</Menu.Item>
-                    <Menu.Item key="11">option11</Menu.Item>
-                    <Menu.Item key="12">option12</Menu.Item>
+                <SubMenu key="sub3" title={<span><Icon type="notification" />历史统计</span>}>
+                    <Menu.Item key="9">待添加....</Menu.Item>
+                    <Menu.Item key="10">待添加....</Menu.Item>
+                    <Menu.Item key="11">待添加....</Menu.Item>
+                    <Menu.Item key="12">待添加....</Menu.Item>
                 </SubMenu>
             </Menu>
         </Sider>
                 <Content style={{ padding: '0 24px', minHeight: 280 }}>
-                    <CenterTabs  refs="centerTabs"/>
+                    {this.props.children}
                 </Content>
             </Layout>
         )
